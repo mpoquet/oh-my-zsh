@@ -3,8 +3,12 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}●"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
+if [[ -v NIX_CONF_DIR ]]; then
+  PROMPT_PART0="%{$fg[cyan]%}(nix-chroot)%{$reset_color%} "
+fi
+
 if [[ -v IN_NIX_SHELL ]]; then
-  PROMPT_PART1="%{$fg[magenta]%}(nix-shell)%{$reset_color%} "
+  PROMPT_PART1="%{$fg[green]%}(nix-shell)%{$reset_color%} "
 fi
 
 if [ $UID -eq 0 ] ; then
